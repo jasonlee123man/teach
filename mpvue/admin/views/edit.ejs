@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit</title>
+</head>
+
+<body>
+    <h1>编辑</h1>
+    <%- include public/menu.ejs %>
+    <form method="post" action="/admin/doEdit" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="<%=detail._id%>" />
+        <div>
+            姓名：<input type="text" name="realname" value="<%=detail.realname%>"/>
+        </div>
+        <div>
+            图片：<input type="file" name="image" />
+        </div>
+        <div>
+            性别：
+            <select name="gender">
+                <option value="男" <%= detail.gender=='男'?'selected':''%>>男</option>
+                <option value="女" <%= detail.gender=='女'?'selected':''%>>女</option>
+            </select>
+        </div>
+        <div>
+            年龄：<input type="text" name="age" value="<%=detail.age%>" />
+        </div>
+        <div>
+            地址：<input type="text" name="address" value="<%=detail.address%>" />
+        </div>
+
+        <button>提交</button>
+    </form>
+
+</body>
+
+</html>

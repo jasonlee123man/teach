@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+    <%- include public/menu.ejs %>
+
+    <table border="1">
+        <caption>学生列表</caption>
+        <tr>
+            <th>姓名 </th>
+            <th>图片</th>
+            <th>性别 </th>
+            <th>年龄 </th>
+            <th>地址 </th>
+            <th>编辑</th>
+        </tr>
+
+        <% for(var i=0;i<list.length;i++){%>
+        <tr>
+            <td><%=list[i].realname %></td>
+            <td><img src="<%=list[i].image%>" /></td>
+            <td><%=list[i].gender %></td>
+            <td><%=list[i].age %></td>
+            <td><%=list[i].address%></td>
+            <td><a href="/admin/edit?id=<%=list[i]._id%>">编辑</a>|<a href="/admin/delete?id=<%=list[i]._id%>">删除</a></td>
+        </tr>
+        <%}%>
+       
+    </table>
+</body>
+
+</html>

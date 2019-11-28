@@ -1,0 +1,6 @@
+<camera />
+<view class="cameraContainer">
+    <view wx:if="{{tag==true}}" class="btn start" bindtap="startRecord"><text >开始</text></view>
+     <view wx:else class="btn stop" bindtap="stopRecord"><text >停止</text></view>
+</view>
+<button type="primary" data-video-Path="{{videoPath}}" bindtap="videoUpload">上传</button>

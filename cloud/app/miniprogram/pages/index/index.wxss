@@ -1,0 +1,47 @@
+page{
+  background: #f7f9f8;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 740rpx;
+  margin: 0 auto;
+}
+
+.section {
+  width: 355rpx;
+  margin: 5rpx 5rpx 10rpx;
+  background: white;
+
+}
+.section view{
+  margin: 10rpx;
+}
+
+.bigImage{
+  width: 100%;
+}
+
+.intro {
+  height: 50rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 28rpx;
+}
+
+.user{
+  display: flex;
+  align-items: center;
+}
+.avatar{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+}
+.nickName{
+  font-size: 20rpx;
+  color: #484846;
+  margin-left: 20rpx;
+}

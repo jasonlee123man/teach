@@ -1,0 +1,15 @@
+<view class="container">
+    <view class="user">
+      <image class="avatar" mode="aspectFit" src="{{userInfo.avatarUrl}}" />
+      <text class="nickName">{{userInfo.nickName}}</text>
+    </view>
+    <image src="{{userInfo.image}}" mode="widthFix"/>
+    <view class="section title">{{userInfo.realname}}</view>
+    <view class="section">{{userInfo.intro}}</view>
+    <view class="videoContainer" hidden="{{videos}}">
+      <view style="text-align:center;">我的作品</view>
+        <block wx:for="{{videos}}" wx:key="{{index}}">
+            <video src="{{item.video}}" wx:key="{{index}}" controls="{{true}}" />
+        </block>
+    </view>
+</view>

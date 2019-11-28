@@ -1,0 +1,28 @@
+camera{
+    width: 750rpx;
+    height: 1000rpx;
+    border: 1px solid #ccc;
+}
+.cameraContainer{
+    display: flex;
+    justify-content: space-around;
+    
+}
+.btn{
+    margin: 30rpx;
+    width: 200rpx;
+    height: 200rpx;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+   
+    color: white;
+}
+.start{
+    background: rgb(7,193,96);
+}
+.stop{
+    background: #f95151;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add</title>
+</head>
+
+<body>
+        <%- include public/menu.ejs %>
+        <h1>添加</h1>
+    <form method="post" action="/admin/doAdd" enctype="multipart/form-data">
+        <div>
+            姓名：<input type="text" name="realname" />
+        </div>
+        <div>
+            图片：<input type="file" name="image" />
+        </div>
+        <div>
+            性别：
+            <select name="gender">
+                <option value="男">男</option>
+                <option value="女">女</option>
+            </select>
+        </div>
+        <div>
+            年龄：<input type="text" name="age" />
+        </div>
+        <div>
+            地址：<input type="text" name="address" />
+        </div>
+
+        <button>提交</button>
+    </form>
+
+</body>
+
+</html>
