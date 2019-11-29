@@ -1,0 +1,3 @@
+故事分类  http://route.showapi.com/1700-1
+故事列表  http://route.showapi.com/1700-2
+故事详情  http://route.showapi.com/1700-3

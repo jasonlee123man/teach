@@ -1,0 +1,10 @@
+<view class="container">
+  <view class="item" wx:for="{{products}}" wx:key="{{index}}"  data-goods_id="{{item.goods_id}}">
+    <image class="pro_image" src="{{item.goods_img_src}}"></image>
+    <view class="title">{{item.goods_name}}</view>
+    <view class="bottom">
+      <text class="price">￥{{item.goods_price}}</text>
+      <button class="btn" plain="{{true}}" bindtap="addCart" data-goods_id="{{item.goods_id}}">添加购物车</button>
+    </view>
+  </view>
+</view>

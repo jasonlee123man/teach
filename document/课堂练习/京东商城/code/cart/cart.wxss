@@ -1,0 +1,80 @@
+page:after{
+	content: "";
+	display: block;
+	width: 750rpx;
+	height: 150rpx;
+}
+.pro{
+	display: flex;
+	align-items: center;
+	width: 710rpx;
+	height: 160rpx;
+	margin: 0 auto;
+	font-size: 0.8rem;
+	padding: 20rpx 0rpx;
+	border-bottom: 1px solid #ccc;
+}
+.pro:nth-last-child(1){
+	border-bottom: none;
+}
+
+.pro_image{
+	width: 150rpx;
+	height: 150rpx;
+}
+
+.pro_content{
+	width: 470rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-left: 20rpx;
+}	
+.pro_content_top{
+	display: flex;
+}	
+.pro_content_bottom{
+	display: flex;
+}
+.pro_content_bottom{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.pro_content_bottom view{
+	font-size: 1rem;
+}
+.title{
+	width: 380rpx;
+	height: 2rem;
+	vertical-align: top;
+	margin-bottom: 1rem;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	display:-webkit-box;
+	-webkit-line-clamp:2;
+	-webkit-box-orient:vertical;
+}
+.hover{
+	color: #ccc;
+}
+
+
+/*底部样式*/
+.bottom{
+	height: 80rpx;
+	width: 100%;
+	background-color: red;
+	color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	bottom: 0rpx;
+}
+.all{
+	margin-left: 20rpx;
+}
+.pay{
+	margin-right: 20rpx;
+}

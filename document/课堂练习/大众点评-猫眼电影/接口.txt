@@ -1,0 +1,5 @@
+大众点评猫眼电影
+网址：https://m.maoyan.com/?from=m_nav_2_maoyandianying#movie
+
+列表页API：https://m.maoyan.com/ajax/movieOnInfoList?token=
+详情页API：https://m.maoyan.com/ajax/detailmovie?movieId=359377

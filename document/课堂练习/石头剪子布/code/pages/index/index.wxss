@@ -1,0 +1,51 @@
+page{
+  background:#fae738;
+}
+
+.oneView{
+  text-align: center;
+  margin: 40rpx 0;
+}
+
+.twoView{
+  display: flex;
+  /* float: left; */
+  /* text-align: center; */
+  justify-content: center;
+  /* vertical-align: middle; */
+  align-items: center;
+}
+
+.twoView image{
+  width: 200rpx;
+  height: 200rpx;
+  margin:20rpx;
+}
+
+.threeView{
+  width: 90%;
+  height: 750rpx;
+  text-align: center;
+  background: #fff;
+  margin: 20px auto;
+}
+
+.threeView image{
+  width: 170rpx;
+  height: 170rpx;
+  border-radius: 50%;
+  margin: 10rpx;
+}
+
+.threeView  .view{
+  font-size: 15px;
+  padding: 40rpx  0;
+}
+
+
+button{
+  width: 540rpx;
+  background: #fae738;
+
+  margin: 30px;
+}

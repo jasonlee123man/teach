@@ -1,0 +1,124 @@
+
+
+
+接口：
+1.首页：轮播图  封面
+https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg?_=1554690676597&g_tk=5381&uin=0&format=json&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1
+
+
+2.排行榜
+https://c.y.qq.com/v8/fcg-bin/fcg_myqq_toplist.fcg?_=1554704775937 &g_tk=5381&uin=0&format=json&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1
+
+
+3.排行榜详情
+https://u.y.qq.com/cgi-bin/musicu.fcg?-=getUCGI6688677494328337&g_tk=1789291141&loginUin=&hostUin=0&format=json&inCharset=utf8&outCharset=utf-8&notice=0&platform=yqq.json&needNewCode=0&data={"detail":{"module":"musicToplist.ToplistInfoServer","method":"GetDetail","param":{"topId":26,"offset":0,"num":20,"period":""}},"comm":{"ct":24,"cv":0}}
+
+
+
+
+4.搜索
+https://c.y.qq.com/splcloud/fcgi-bin/smartbox_new.fcg?is_xml=0&format=jsonp&key=月亮&g_tk=5381&jsonpCallback=callback&loginUin=0&hostUin=0&inCharset=utf-8&outCharset=utf-8&notice=0&platform=yqq&needNewCode=0
+
+--------------------------------------------------------
+获取播放文件
+1.根据排行榜topId获取歌曲列表
+https://u.y.qq.com/cgi-bin/musicu.fcg?-=getUCGI6688677494328337&g_tk=1789291141&loginUin=&hostUin=0&format=json&inCharset=utf8&outCharset=utf-8&notice=0&platform=yqq.json&needNewCode=0&data={"detail":{"module":"musicToplist.ToplistInfoServer","method":"GetDetail","param":{"topId":26,"offset":0,"num":20,"period":""}},"comm":{"ct":24,"cv":0}}
+
+2.根据每个歌曲的mid，获取vkey
+地址：https://c.y.qq.com/base/fcgi-bin/fcg_music_express_mobile3.fcg
+参数：data:{
+		g_tk: 5381,
+		inCharset: 'utf-8',
+		outCharset: 'utf-8',
+		notice: 0,
+		format: 'jsonp',
+		hostUin: 0,
+		loginUin: 0,
+		platform: 'yqq',
+		needNewCode: 0,
+		cid: 205361747,
+		uin: 0,
+		filename: `C400${songmid}.m4a`,
+		guid: 3913883408,
+		songmid: songmid,
+		callback: 'callback',
+	}
+
+3.处理返回结果，拿到filename和vkey，组成播放地址
+	let str=res.data.replace("callback(","");
+	str=str.substring(0,str.length-1);
+	let arr=JSON.parse(str);
+
+	let playAddress = `https://dl.stream.qqmusic.qq.com/${arr.data.items[0].filename}?vkey=${arr.data.items[0].vkey}&guid=3913883408&uin=0&fromtag=66`;
+	console.log(playAddress);
+	let myAudio=wx.createInnerAudioContext();
+	myAudio.src=playAddress;
+	myAudio.play();
+	
+	
+	
+搜索页逻辑分析：
+	tagShow
+	clearShow
+	cancleShow
+	historyShow
+	songListShow
+	1.页面加载：onLoad()  	  
+		列出tags
+		
+		tagShow:true,
+		cancleShow:false,
+		clearShow:false,
+		historyShow:false,
+		songListShow:false
+		
+
+	2.input框获取焦点：onFocus()
+		显示取消按钮
+		从缓存中读出历史搜索，列在下面
+		
+		tagShow:false,
+		cancleShow:true,
+		clearShow:false,
+		historyShow:true
+		songListShow:false
+		
+	3.input框输入文字：input()
+		出来小叉号
+		
+		tagShow:false
+		cancleShow:true
+		clearShow:true
+		historyShow:true
+		songListShow:false
+		
+		
+		
+	4.点击取消：
+		回到tags页面
+		
+		tagShow:true,
+		cancleShow:false,
+		clearShow:false,
+		historyShow:false,
+		songListShow:false
+
+	
+	5.点击小叉号：
+		清除input框中的文字
+		
+			tagShow:false,
+			clearShow:true,,
+			historyShow:true,
+			songListShow:false
+		
+
+	6.点击回车：
+		请求数据接口，根据关键字搜素歌曲，把歌曲列在下面
+		把关键字存入缓存
+		
+		tagShow:false,
+		clearShow:true,
+		cancleShow:true,
+		historyShow:falses,
+		songListShow:true
