@@ -1,0 +1,22 @@
+<view class='oneView'>
+  您已经获胜了
+  <text style='color:red'>{{count}}</text>
+  次
+</view>
+<view class='twoView'>
+  <!-- 电脑出的拳 -->
+  <image src='{{pcImage}}'></image>
+  <view style='color:red'>{{message}}</view>
+  <!-- 我出的拳 -->
+  <image src='{{myImage}}'></image>
+</view>
+<view class='threeView'>
+  <view class='view'>出拳吧，骚年！</view>
+  <view>
+    <block wx:for="{{allImage}}" wx:key="{{index}}">
+      <image src='{{item}}' bindtap="myChuquan" id="{{index}}"></image>
+    </block>
+  </view>
+  <button bindtap='again'>再来一次</button>
+  <button bindtap='cancle'>C</button>
+</view>

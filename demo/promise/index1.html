@@ -1,0 +1,13 @@
+<script type="text/javascript">
+	console.log("here we go");
+	new Promise((resolve)=>{
+		setTimeout(()=>{
+			resolve("hello")
+		},2000)
+		// resolve("hello")
+	})
+	.then(value=>{
+		console.log(value)
+	})
+
+</script>
