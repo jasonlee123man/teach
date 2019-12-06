@@ -1,2 +1,10 @@
-医院接口：
-https://www.showapi.com/apiGateway/view/?apiCode=87&pointCode=59
+作业要求：
+●上拉或下拉以及页面滚动实现加载更多效果
+●常用页面交互api实现提示效果
+●网络请求api实现请求数据效果
+
+医院接口文档
+	https://www.showapi.com/apiGateway/view/?apiCode=87&pointCode=59
+
+医院接口测试：
+	http://route.showapi.com/87-60?showapi_appid=123271&showapi_sign=811cfa33499a4fe4972cb642bfa132ff&cityName=%E8%A5%BF%E5%AE%89

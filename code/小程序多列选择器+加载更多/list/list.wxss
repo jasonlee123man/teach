@@ -1,0 +1,4 @@
+.item{
+  border-bottom: 1rpx solid #ccc;
+  height: 80rpx;
+}

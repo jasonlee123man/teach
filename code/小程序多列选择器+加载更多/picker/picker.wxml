@@ -1,0 +1,9 @@
+<picker 
+mode="multiSelector"
+range="{{starArr}}"
+bindcolumnchange="myColumnChange"
+bindchange="myChange"
+value="{{starIndex}}"
+>
+明星：{{starArr[0][starIndex[0]]}}----{{starArr[1][starIndex[1]]}}
+</picker>

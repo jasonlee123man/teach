@@ -1,0 +1,30 @@
+ products:[
+      {
+        "goodsid": 1001,
+        "image": "/static/001.jpg",
+        "name": "西装",
+        "desc": "非常帅的西装",
+        "price": 200
+      },
+      {
+        "goodsid": 1002,
+        "image": "/static/002.png",
+        "name": "裙子",
+        "desc": "非常帅的西装",
+        "price": 200
+      },
+      {
+        "goodsid": 1003,
+        "image": "/static/003.png",
+        "name": "包包",
+        "desc": "非常帅的西装",
+        "price": 200
+      },
+      {
+        "goodsid": 1004,
+        "image": "/static/004.png",
+        "name": "帽子",
+        "desc": "非常帅的西装",
+        "price": 200
+      }
+    ]

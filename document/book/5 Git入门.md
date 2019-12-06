@@ -4,7 +4,8 @@
 
 
 ```
-ssh-keygen -t rsa -C "jasonlee123man@126.com"
+ssh-keygen -t rsa -C "jasonlee123man@126.com" 
+#存储地址：/c/Users/Administrator/.ssh/id_rsa.pub
 
 ssh -T git@github.com		#检测权限是否设置成功
 
