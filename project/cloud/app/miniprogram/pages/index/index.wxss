@@ -1,47 +1,46 @@
+/* miniprogram/pages/list/list.wxss */
 page{
-  background: #f7f9f8;
+  background: rgb(233,232,228)
 }
-.container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 740rpx;
-  margin: 0 auto;
-}
-
-.section {
-  width: 355rpx;
-  margin: 5rpx 5rpx 10rpx;
-  background: white;
-
-}
-.section view{
-  margin: 10rpx;
-}
-
-.bigImage{
-  width: 100%;
-}
-
-.intro {
-  height: 50rpx;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: 28rpx;
-}
-
-.user{
-  display: flex;
-  align-items: center;
-}
-.avatar{
-  width: 50rpx;
-  height: 50rpx;
-  border-radius: 50%;
-}
-.nickName{
-  font-size: 20rpx;
-  color: #484846;
-  margin-left: 20rpx;
-}
+.container{
+    margin:15rpx;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .item{
+    width: 356rpx;
+    height:620rpx;
+    margin-bottom: 15rpx;
+    background: white;
+  }
+  .img{
+    width:100%;
+    height:445rpx;
+  }
+  .jianjie{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    width: 300rpx;
+    font-size: 26rpx;
+    color:#666;
+    margin-left: 20rpx;
+    height: 70rpx;
+  }
+  .user{
+    display: flex;
+    align-items: center;
+    margin: 20rpx 0 0 20rpx;
+  }
+  .avatar{
+    border-radius:50%;overflow:hidden;display:block;
+    height: 60rpx;
+    width: 60rpx;
+  }
+  .nickname{
+    color:#999;
+    font-size:28rpx;
+    margin-left: 20rpx;
+  }

@@ -1,3 +1,0 @@
-<view wx:for="{{list}}" wx:key="{{index}}" class="section" >
-  <video src="{{item.video}}" controls="{{true}}" object-fit="cover"></video>
-</view>

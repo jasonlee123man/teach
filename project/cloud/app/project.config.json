@@ -10,8 +10,8 @@
 		"enhance": true
 	},
 	"appid": "wx6ec4f2956a837aef",
-	"projectname": "wall",
-	"libVersion": "2.9.3",
+	"projectname": "app",
+	"libVersion": "2.8.1",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
@@ -39,15 +39,15 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "my",
+					"name": "pages/my/my",
 					"pathName": "pages/my/my",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": 1,
-					"name": "addIntro",
-					"pathName": "pages/addIntro/addIntro",
+					"id": -1,
+					"name": "pages/add/add",
+					"pathName": "pages/add/add",
 					"query": "",
 					"scene": null
 				},
@@ -59,37 +59,23 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "addVideo",
-					"pathName": "pages/addVideo/addVideo",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "index",
-					"pathName": "pages/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 5,
-					"name": "detail",
+					"id": 3,
+					"name": "pages/detail/detail",
 					"pathName": "pages/detail/detail",
-					"query": "id=7c47f3615dd1da6d0119f3b74a1ef111",
+					"query": "id=e8f863ba5df60e8103908af3052c0d07",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "test",
-					"pathName": "pages/test/test",
+					"name": "pages/history/history",
+					"pathName": "pages/history/history",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "video",
-					"pathName": "pages/video/video",
+					"name": "pages/add/add",
+					"pathName": "pages/add/add",
 					"query": "",
 					"scene": null
 				}

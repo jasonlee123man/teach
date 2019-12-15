@@ -1,63 +1,77 @@
+const app=getApp()
 Page({
-  data:{
-    userInfo:{
-      avatarUrl:"/images/user.png"
-    },
-    isLogin:false
+  data: {
+    hiddenName: false,
+    avatarUrl: '/images/user-unlogin.png',
+    userInfo: {},
+    takeSession: false,
+    requestResult: ''
   },
-  onLoad: function (options) {
-    //页面加载，检查登录状态：如果登录，则显示头像等信息
-    wx.getSetting({
-      success: (result)=>{
-        // console.log(result)
-        //如果登录没有过期，则获取用户信息
-        if(result.authSetting['scope.userInfo']){
-          wx.getUserInfo({
-            success:res=>{
-              //把用户信息存入缓存
-              wx.setStorageSync("userInfo",res.userInfo)
-              //把openid存入缓存
-              this.getOpenid()
-              //把头像、昵称渲染到页面
-              this.setData({
-                userInfo:res.userInfo,
-                isLogin:true
-              })
-            }
-          })
-        }
-      },
-      fail: ()=>{},
-      complete: ()=>{}
-    });
-  },
-  /*通过用户点击按钮获取用户授权，把个人信息存入缓存*/
-  getUserInfo(e){
-    //获取userInfo，存入缓存
-    let userInfo=e.detail.userInfo;
-    wx.setStorageSync("userInfo",userInfo)
-    //获取openid，存入缓存
-    this.getOpenid();
-    //把头像、昵称渲染到页面
+  onReady(){
+    //页面加载，渲染用户信息
     this.setData({
-      userInfo,
-      isLogin:true
+      userInfo:app.globalData.userInfo
     })
-   
   },
-  //获取用户openid
-   getOpenid() {
-    //通过云函数获取openid
-    wx.cloud.callFunction({
-      name:"login"
+  getInfo(e) {
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hiddenName: !this.data.hiddenName
     })
-    .then(res=>{
-      wx.setStorageSync("openid",res.result.openid)
-    })
-    .catch(err=>{
-      console.log(err)
-    })
-  }
-
-
+  },
+  //添加用户信息
+  addInfo() {
+    if(app.globalData.userInfo==undefined){
+      wx.showModal({
+        title:"温馨提示",
+        content:"请您先登录",
+        success:res=>{
+          if(res.confirm){
+            wx.switchTab({
+              url:"/pages/my/my"
+            })
+          }
+        }
+      })
+    }else{
+       wx.navigateTo({
+        url: '/pages/add/add',
+        success: (result) => {
+          console.log(1)
+        }
+      });
+    }
+  },
+  //点击历史信息
+  history() {
+    if(app.globalData.userInfo){
+      wx.navigateTo({
+      url: '/pages/history/history',
+      success: (res) => {
+        console.log(res)
+      }
+    });
+    }else{
+     wx.showModal({
+        title:"温馨提示",
+        content:"请您先登录",
+        success:res=>{
+          if(res.confirm){
+            wx.switchTab({
+              url:"/pages/my/my"
+            })
+          }
+        }
+      })
+    }
+    
+  },
+  //用户同意获取个人信息
+  onGetUserInfo: function (e) {
+    app.globalData.userInfo=e.detail.userInfo
+    this.setData({
+        logged: true,
+        userInfo: e.detail.userInfo
+      })
+  },
 })

@@ -1,10 +1,12 @@
 <view class="container">
-  <navigator url="../detail/detail?id={{item._id}}" open-type="navigate" class="section" wx:for="{{data}}" wx:key="{{index}} ">
-    <image class="bigImage" src="{{item.image}}" mode="aspectFill"></image>
-    <view class="intro">{{item.intro}}</view>
+  <view class="item" wx:for="{{list}}" wx:key="index" bindtap='detail' id='{{item._id}}'>
+    <image class="img" mode="aspectFill" src="{{item.fileids[0]}}"></image>
+    <view class="jianjie">
+    	<rich-text nodes="{{item.intro}}"></rich-text>
+   </view>
     <view class="user">
-      <image class="avatar" mode="aspectFit" src="{{item.avatarUrl}}" />
-      <text class="nickName">{{item.nickName}}</text>
+    	<image src="{{item.avatarUrl}}" class="avatar"/>
+    	<text  class="nickname" >{{item.nickName}}</text>
     </view>
-  </navigator>
+  </view>
 </view>

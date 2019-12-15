@@ -1,1 +1,0 @@
-<button bindtap="add" type="primary">add</button>

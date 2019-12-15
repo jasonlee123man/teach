@@ -1,37 +1,55 @@
-// miniprogram/pages/index/index.js
-const db = wx.cloud.database();
+const db=wx.cloud.database()
 Page({
   data: {
-    page: 1,
-    data:[],
+    list:[],
+    page:0,
+    pageSize:10
   },
-  onShow: function(options) {
-    this.getContent(1)
+  onShow(){
+    this.data.list=[]
+    this.getList(0)
   },
-  onPulldownRefresh:function(){
-    this.getContent(1)
-  },
-  getContent(page) {
-    db.collection("users").where({}).get()
-      .then(res => {
-        this.setData({
-          data: res.data
-        })
+  getList(page){
+    wx.showLoading({
+      title:"正在加载",
+      icon:"loading"
+    })
+    let pageSize=this.data.pageSize;
+    db.collection("star").where({status:1})
+    .skip(page*pageSize)
+    .limit(pageSize)
+    .orderBy('addtime', 'desc')
+    .get()
+    .then(res => {
+      wx.hideLoading()
+      this.setData({
+        list:this.data.list.concat(res.data)
       })
-      .catch(err => {
-        console.log(err)
-      })
+    })
   },
-  //设置分享
-  onShareAppMessage(res){
-    if (res.from === 'button') {
-      // 来自页面内转发按钮
-      console.log(res.target)
-    }
-    return {
-      title: '技能互换',
-      path: '/pages/index/index'
-    }
+  onReachBottom(){
+    let page=++this.data.page;
+    this.getList(page)
+  },
+  onPullDownRefresh(){
+    this.data.list=[];
+    this.getList(0)
+  },
+  //跳转详情页
+  detail(e){
+    let id=e.currentTarget.id;
+    wx.navigateTo({
+      url: `/pages/detail/detail?id=${id}`,
+      success: (res)=>{
+        console.log(res)
+      }
+    });
+  },
+  //页面分享
+  onShareAppMessage(){
+    let index=this.list.length-1;
+   return{
+    title:"小草上墙"
+   }
   }
-
 })

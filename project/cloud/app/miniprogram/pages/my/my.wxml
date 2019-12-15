@@ -1,15 +1,29 @@
-<view class="top">
-  <image src="{{userInfo.avatarUrl}}" class="avatar" />
-  <button type="primary" hidden="{{isLogin}}" open-type='getUserInfo' bindgetuserinfo="getUserInfo">
-    点击登录
-  </button>
-  <text wx:if="{{isLogin}}">{{userInfo.nickName}}</text>
-</view>
-<view wx:if="{{isLogin}}">
-  <view class="item" bindtap="addInfo">
-    <navigator open-type="navigate" url="../addIntro/addIntro">添加技能</navigator>
+<view class="container">
+  <view class="head">
+    <!-- 1.如果用户已经登录，则显示头像和昵称 -->
+    <view wx:if="{{userInfo.avatarUrl}}">
+      <image id="userinfo-avatar" src="{{userInfo.avatarUrl}}" />
+      <view>
+        <text>{{userInfo.nickName}}</text>
+      </view>
+       
+   </view>
+   <!-- 2.如果用户没有登录，则显示默认头像和登录按钮 -->
+   <view wx:else>
+    <image id="userinfo-avatar" src="{{avatarUrl}}" />
+    <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" type="primary">登录</button>
   </view>
-  <!-- <view class="item" bindtap="addVideo">
-    <navigator open-type="navigate" url="../addVideo/addVideo">添加视频</navigator>
-  </view> -->
+
+</view>
+
+<view class="grey"></view>
+
+<view class="add" bind:tap="addInfo">
+  <image class="pic" src="/images/add-selected.png" />
+  <text>添加信息</text>
+</view>
+<view class="history" bind:tap="history">
+  <image class="pic" src="/images/detail-selected.png" />
+  <text>历史信息</text> 
+</view>
 </view>
