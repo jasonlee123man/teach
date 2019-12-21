@@ -15,5 +15,6 @@ router.use("/list",list)
 router.use("/edit",edit);
 router.use("/delete",del);
 router.use("/add",add)
+router.use("/doAdd",add)
 
 module.exports=router

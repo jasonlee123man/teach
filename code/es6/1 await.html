@@ -1,0 +1,35 @@
+<script type="text/javascript">
+	{
+		function fun1(){
+			return new Promise(resolve=>{
+				setTimeout(()=>{
+					console.log(1)
+					resolve()
+				},1000)
+			})
+			
+		}
+		function fun2(){
+			return new Promise(resolve=>{
+				setTimeout(()=>{
+					console.log(2)
+					resolve()
+				},1000)
+			})
+		}
+		function fun3(){
+			return new Promise(resolve=>{
+				setTimeout(()=>{
+					console.log(3)
+					resolve()
+				},1000)
+			})
+		}
+		async function init(){
+			await fun1();
+			await fun2();
+			await fun3();
+		}
+		init()	
+	}
+</script>

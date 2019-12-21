@@ -1,11 +1,17 @@
 const express = require("express");
 var router = express.Router()
 
+var multiparty=require("multiparty");
+const MongodbClient = require("mongodb").MongoClient;
+const ObjectId = require("mongodb").ObjectID;
+const dbUrl = "mongodb://localhost:27017/";
+
+
 router.get("/", function (req, res) {
     res.render("add")
 })
 
-router.post("/doAdd", function (req, res) {
+router.post("/post", function (req, res) {
     //1.接收数据
     var form = new multiparty.Form();
 
@@ -25,6 +31,8 @@ router.post("/doAdd", function (req, res) {
             useUnifiedTopology: true
         }, function (err, client) {
             var collection = client.db("mydb").collection("student");
+            // console.log({realname,gender,age,address,image})
+            // return;
             collection.insertOne({
                 realname: realname,
                 gender: gender,
@@ -36,7 +44,7 @@ router.post("/doAdd", function (req, res) {
                     console.log(err);
                     return;
                 }
-                res.send("<script>alert('成功添加');location.href='/list'</script>")
+                res.send("<script>alert('成功添加');location.href='/admin/list'</script>")
             })
         })
     })

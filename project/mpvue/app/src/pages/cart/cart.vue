@@ -8,7 +8,7 @@
             <p class="input">
               <input type="checkbox" :checked="item.checked" @tap="singleCheck(index)" />
             </p>
-            <image :src="item.pic" />
+            <image :src="item.image" />
             <div class="des">
               <p class="name">{{item.name}}</p>
               <p class="price">
@@ -39,16 +39,18 @@
         合计：
         <span>￥{{total}}</span>
       </p>
-      <p class="settlement">
+      <p class="settlement" @click="addOrder">
         结算
-        <span>()</span>
+        <span>({{count}})</span>
       </p>
     </div>
   </div>
 </template>
     
 <script>
+  let app=getApp()
 export default {
+
   data() {
     return {
       cart: [],
@@ -57,6 +59,48 @@ export default {
     };
   },
   methods: {
+    //添加订单
+    addOrder(){
+      //获取openid
+      wx.login({
+        success:res=>{
+          let code=res.code;
+          let appid="wx6ec4f2956a837aef";
+          let appsecret="584f612c8e3e5738b4539f4538ef2460";
+
+          let codeUrl=`https://api.weixin.qq.com/sns/jscode2session?appid=${appid}&secret=${appsecret}&js_code=${code}&grant_type=authorization_code`
+          wx.request({
+            url:codeUrl,
+            success:(res)=>{
+              let openid=res.data.openid;
+               //把openid和购物车中选中的商品，添加到数据库
+               let order=this.cart.filter(item=>{
+                return item.checked;
+               })
+               // console.log(order)
+               wx.request({
+                url:"http://127.0.0.1:8080/addOrder",
+                method:"POST",
+                data:{
+                  openid,
+                  products:order
+                },
+                success:res=>{
+                  console.log(res)
+                },
+                fail:err=>{
+                  console.log(err)
+                }
+               })
+            }
+          })
+        },
+        fail:err=>{
+          console.log(err)
+        }
+      })
+     
+    },
     //计算总价
     getTatal() {
       //forEach遍历数组，把checked为true的每一项，pirce*count，累加
@@ -117,6 +161,14 @@ export default {
       wx.setStorageSync('cart',this.cart);
       //计算总价
       this.getTatal()
+    }
+  },
+  computed:{
+    count(){
+      let result= this.cart.filter((item)=>{
+        return item.checked==true;
+      })
+      return result.length;
     }
   },
 

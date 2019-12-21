@@ -4,7 +4,7 @@
     <div class="top">
       <div>
         <div class="img">
-          <image :src="detail.pic" mode="aspectFit" />
+          <image :src="detail.image" mode="aspectFit" />
         </div>
         <div class="des">
           <p>

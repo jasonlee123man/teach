@@ -1,8 +1,8 @@
 const express = require("express");
 var router = express.Router();
 
-
 //引入MongoDB
+var multiparty=require("multiparty");
 const MongodbClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectID;
 const dbUrl = "mongodb://localhost:27017/";

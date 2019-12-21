@@ -48,3 +48,7 @@ radio {
     margin: 2rpx;
 }
 
+button{
+    margin-top: 20rpx;
+}
+

@@ -12,7 +12,7 @@
     "ejs": "^2.7.2",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
-    "mongodb": "^3.3.4",
+    "mongodb": "^3.4.0",
     "multiparty": "^4.2.1",
     "supervisor": "^0.12.0"
   }

@@ -2,6 +2,7 @@ const express = require("express");
 var router = express.Router();
 
 //引入MongoDB
+var multiparty=require("multiparty");
 const MongodbClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectID;
 const dbUrl = "mongodb://localhost:27017/";
@@ -26,8 +27,8 @@ router.get("/", function (req, res) {
 })
 
 // 执行编辑
-router.get("/doEdit", function (req, res) {
-    console.log("china")
+router.post("/doEdit", function (req, res) {
+    // console.log("china")
     //1.接收id
     var form = new multiparty.Form();
     //指定上传目录
@@ -71,7 +72,7 @@ router.get("/doEdit", function (req, res) {
                     console.log(err);
                     return;
                 }
-                res.send("<script>alert('成功修改');window.location.href='/list';</script>")
+                res.send("<script>alert('成功修改');window.location.href='/admin/list';</script>")
             })
         })
     })

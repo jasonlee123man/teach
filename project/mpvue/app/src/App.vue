@@ -26,6 +26,11 @@ export default {
   },
   log () {
     console.log(`log at:${Date.now()}`)
+  },
+  globalData:{
+    baseUrl:"http://127.0.0.1:8080/",
+    appid:"wx6ec4f2956a837aef",
+    appsecret:"584f612c8e3e5738b4539f4538ef2460"
   }
 }
 </script>

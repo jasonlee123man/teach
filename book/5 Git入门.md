@@ -39,6 +39,7 @@ $ git branch
 $ git checkout myBranch
 $ git merge myBranch
 $ git branch -d myBranch   #删除某一分支
+$ git push origin --delete <branchName>   #删除远程分支
 ```
 
 5.diff

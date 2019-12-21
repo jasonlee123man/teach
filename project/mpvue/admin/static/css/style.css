@@ -1,6 +1,10 @@
 table {
     border-collapse: collapse;
 }
-tr img{
+tr img,td img{
     max-height: 50px;
+    max-width: 100px;
+}
+.tdImage{
+	max-width: 100px;
 }

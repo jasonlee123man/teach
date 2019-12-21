@@ -11,7 +11,7 @@
 <body>
     <h1>编辑</h1>
     <%- include public/menu.ejs %>
-    <form method="post" action="/admin/doEdit" enctype="multipart/form-data">
+    <form method="post" action="/admin/edit/doEdit" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<%=detail._id%>" />
         <div>
             姓名：<input type="text" name="realname" value="<%=detail.realname%>"/>

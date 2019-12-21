@@ -42,7 +42,7 @@
     <div class="books">
       <ul>
         <li v-for="(item1,idx) of books" :key="idx" @click="detail(item1.id)">
-          <image :src="item1.pic" mode="aspectFit"/>
+          <image :src="item1.image" mode="aspectFit"/>
           <p class="name">{{item1.name}}</p>
           <div class="Self-support">
             <p class="self">当当自营</p>

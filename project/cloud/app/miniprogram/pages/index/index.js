@@ -47,7 +47,6 @@ Page({
   },
   //页面分享
   onShareAppMessage(){
-    let index=this.list.length-1;
    return{
     title:"小草上墙"
    }

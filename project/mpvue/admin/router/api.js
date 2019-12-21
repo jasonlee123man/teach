@@ -1,20 +1,11 @@
-const express = require("express");
-const app = express();
+const express=require("express");
+const router=express.Router();
 
-const MongodbClient = require("mongodb").MongoClient;
-const ObjectId = require("mongodb").ObjectID;
-const dbUrl = "mongodb://localhost:27017/";
-
-app.get("/list",function(req,res){
-    MongodbClient.connect(dbUrl,{ useUnifiedTopology: true },function(err,client){
-        const collection=client.db("mydb").collection("student");
-        collection.find({}).toArray(function(err,result){
-
-            res.writeHead(200,{'Content-Type':'application/json'});
-            res.write(JSON.stringify(result))
-            res.end()
-        })
-    })
+router.get("/",function(req,res){
+    res.send("api接口")
 })
 
-app.listen(3010)
+var list=require("./api/list.js")
+router.use("/list",list)
+
+module.exports=router
