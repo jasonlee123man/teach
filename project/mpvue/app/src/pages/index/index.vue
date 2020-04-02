@@ -25,7 +25,7 @@
     <div class="booktype">
       <ul>
         <li v-for="(item,index) in booktype" :key="index">
-          <image :src="item.pic"  />
+          <image :src="item.image"  />
           <!-- <p><a href="">{{item.name}}</a></p> -->
         </li>
       </ul>
@@ -42,7 +42,7 @@
     <div class="books">
       <ul>
         <li v-for="(item1,idx) of books" :key="idx" @click="detail(item1.id)">
-          <image :src="item1.image" mode="aspectFit"/>
+          <image :src="item1.image" mode="aspectFill"/>
           <p class="name">{{item1.name}}</p>
           <div class="Self-support">
             <p class="self">当当自营</p>
@@ -98,7 +98,7 @@ export default {
     wx.request({
       url: 'http://127.0.0.1:8080/book.json', // 目标服务器url
       success: (res) => {
-        console.log(res);
+        // console.log(res);
         this.books=res.data
       }
     });
