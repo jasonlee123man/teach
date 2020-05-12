@@ -1,10 +1,11 @@
-作业要求：
-●上拉或下拉以及页面滚动实现加载更多效果
-●常用页面交互api实现提示效果
-●网络请求api实现请求数据效果
+﻿作业要求：
+●生成列表页，并且实现加载更多的功能、loading效果
+●详情页中显示图片、名称和内容，实现loading效果
+接口文档  
+https://www.showapi.com/apiGateway/view/?apiCode=87&pointCode=59
 
-医院接口文档
-	https://www.showapi.com/apiGateway/view/?apiCode=87&pointCode=59
+医院列表api：
+http://route.showapi.com/87-60?showapi_appid=190342&showapi_sign=ec03f001017945e89d21ebe515bc02f4&provinceName=北京
 
-医院接口测试：
-	http://route.showapi.com/87-60?showapi_appid=123271&showapi_sign=811cfa33499a4fe4972cb642bfa132ff&cityName=%E8%A5%BF%E5%AE%89
+医院详情api：
+https://route.showapi.com/87-59?showapi_appid=190342&showapi_sign=ec03f001017945e89d21ebe515bc02f4&id=55c2ec58a2b7b27898fe234f
