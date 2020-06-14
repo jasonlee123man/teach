@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>地图</title>
+    <style>
+      body {
+        background: url("./");
+        padding: 0px;
+        margin: 0px;
+      }
+      .wrapper {
+        background: url("./static/map.jpg") no-repeat;
+        background-size: cover;
+        width: 900px;
+        height: 600px;
+        margin: 0 auto;
+      }
+      .dot {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        left: 834px;
+        top: 246px;
+        background: cornflowerblue;
+        border: 1px solid cornflowerblue;
+        border-radius: 50%;
+      }
+
+      .dot div[class^="pulse"] {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+        box-shadow: 0 0 12px blue;
+        border-radius: 50%;
+        animation: pulse 1.2s linear infinite;
+      }
+
+      .pulse2 {
+        animation-delay: 0.4s;
+      }
+
+      .pulse3 {
+        animation-delay: 0.8s;
+      }
+
+      @keyframes pulse {
+        0% {
+          /* animation-delay: 0.4s; */
+        }
+
+        70% {
+          width: 30px;
+          height: 30px;
+          opacity: 1;
+        }
+
+        100% {
+          /* animation-delay: 0.6s; */
+          width: 40px;
+          height: 40px;
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="dot">
+        <div class="pulse1"></div>
+        <div class="pulse2"></div>
+        <div class="pulse3"></div>
+      </div>
+    </div>
+  </body>
+</html>
