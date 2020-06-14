@@ -1,0 +1,14 @@
+table img{
+    max-width: 80px;
+    max-height: 80px;
+}
+.desc{
+    width: 40%;
+}
+form img{
+    max-width: 100px;
+    max-height: 100px;
+}
+.img{
+    margin-left: 64px;
+}
