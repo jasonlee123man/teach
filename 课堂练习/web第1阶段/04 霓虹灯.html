@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		body{margin: 0px;padding: 0px;background: black;height: 100%;}
+		svg{width: 100%;height: 100%;}
+		.words{
+			font-size: 22vh;
+			font-weight: bold;
+			fill: none;
+			stroke-width:8px;
+			stroke-dasharray: 90,310;
+			animation: drawing 8s linear infinite;
+		}
+
+		.words-1{
+			stroke: deepskyblue;
+			text-shadow: 0 0 50px deepskyblue;
+			animation-delay: -2s;
+		}
+		.words-2{
+			stroke: red;
+			text-shadow: 0 0 50px red;
+			animation-delay: -4s;
+		}
+		.words-3{
+			stroke: orange;
+			text-shadow: 0 0 50px orange;
+			animation-delay: -6s;
+		}
+		.words-4{
+			stroke: purple;
+			text-shadow: 0 0 50px purple;
+			animation-delay: -8s;
+		}
+
+		@keyframes drawing{
+			/*from{
+				stroke-dashoffset:0;
+			}*/
+			to{
+				stroke-dashoffset:-400;
+			}
+		}
+	</style>
+</head>
+<body>
+	<svg width="100%" height="100%">
+		<g transform="translate(10,50)">
+			<text id="time" text-anchor="middle" x="50%" y="50%" class="words words-1">
+			<text id="time" text-anchor="middle" x="50%" y="50%" class="words words-2">
+			<text id="time" text-anchor="middle" x="50%" y="50%" class="words words-3">
+			<text id="time" text-anchor="middle" x="50%" y="50%" class="words words-4">
+		</g>
+		
+	</svg>
+	<script type="text/javascript">
+		function showTime(){
+			var nowtime=new Date();
+			var h=nowtime.getHours()
+			var m=nowtime.getMinutes();
+			var s=nowtime.getSeconds();
+
+			var h=checktime(h);
+			var m=checktime(m);
+			var s=checktime(s);
+
+			 return `${h}:${m}:${s}`
+
+		}
+
+		function checktime(x){
+			if(x<10){
+				x="0"+x
+			}
+			return x;
+		}
+
+		var divList = document.querySelectorAll("text");
+		setInterval(()=>{
+			timestr=showTime();
+			divList.forEach((item,index)=>{
+				item.innerHTML=timestr;
+			})
+		},1000)
+	</script>
+
+</body>
+</html>
